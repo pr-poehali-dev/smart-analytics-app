@@ -1,6 +1,7 @@
-import { Compass, Lock, Sparkles, ShieldCheck, Wallet, Leaf, Plus, Minus, Mail } from "lucide-react"
+import { Compass, MapPin, Camera, Church, Trees, Coffee, Plus, Minus, Mail, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import Icon from "@/components/ui/icon"
 
 interface FAQ {
   question: string
@@ -16,24 +17,24 @@ const Index = () => {
 
   const faqs: FAQ[] = [
     {
-      question: "Насколько физически сложен этот тур?",
+      question: "Как добраться до села Барда?",
       answer:
-        "Экспедиция в Скрытую Долину требует отличной физической подготовки. Вам предстоит пройти более 15 км по джунглям, спуститься по веревке с 80-метровой высоты и преодолеть подземные реки. Участники должны быть готовы нести рюкзак весом 15 кг и иметь опыт спелеологии или треккинга.",
+        "Село Барда находится в Пермском крае. Из Перми можно добраться на автобусе — время в пути около 3 часов. Также есть возможность приехать на личном автомобиле по трассе Пермь — Барда.",
     },
     {
-      question: "Что входит в стоимость тура?",
+      question: "Когда лучше всего посещать село?",
       answer:
-        "В стоимость экспедиции включены все разрешения, профессиональные гиды, снаряжение для безопасности, палаточное оборудование, питание на маршруте, трансфер от базового лагеря и страховка экстренной эвакуации. Личные вещи, такие как одежда и средства гигиены, не включены.",
+        "Лучшее время для посещения — с мая по сентябрь. Летом можно насладиться природой, зелёными лугами и реками. Зимой село покрывается снегом и приобретает особое очарование — идеально для любителей тихого отдыха.",
     },
     {
-      question: "Безопасно ли исследовать пещеру Скрытой Долины?",
+      question: "Есть ли в Барде места для проживания?",
       answer:
-        "Безопасность — наш абсолютный приоритет. Все гиды — сертифицированные спасатели-спелеологи, мы используем профессиональное снаряжение, поддерживаем постоянную связь с базовым лагерем и имеем комплексные протоколы на случай ЧП. Погодные условия отслеживаются непрерывно.",
+        "В селе и окрестностях есть гостевые дома и возможности для размещения. Рекомендуем уточнять наличие мест заранее, особенно в летний сезон. Местные жители также часто принимают гостей.",
     },
     {
-      question: "Как забронировать место?",
-      answer:
-        "Группы ограничены 10 участниками, экспедиции проводятся только в сухой сезон (февраль-август). Бронируйте за 6-12 месяцев через наш сайт. Предоплата 50% закрепляет ваше место, полная оплата — за 30 дней до выезда.",
+      question: "Что обязательно попробовать из местной кухни?",
+        answer:
+        "Барда — многонациональное село с богатыми кулинарными традициями. Обязательно попробуйте традиционные татарские и башкирские блюда: чак-чак, эчпочмак, беляши. Местные кафе предлагают домашнюю еду из свежих продуктов.",
     },
   ]
 
@@ -45,7 +46,7 @@ const Index = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url(https://www.elledecoration.vn/wp-content/uploads/2025/03/1-son-doong.jpg)",
+            backgroundImage: "url(https://cdn.poehali.dev/projects/f08187ea-bbf5-425f-abf1-960f2ff0c2c9/files/44980e38-18f6-44cb-b3e5-cfd58f76e233.jpg)",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80" />
@@ -55,13 +56,13 @@ const Index = () => {
         <nav className="relative z-10 flex items-center justify-between p-6">
           {/* Logo */}
           <div className="flex items-center gap-2 px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full">
-            <Compass className="w-5 h-5" />
-            <span className="font-medium text-balance">Horizon Adventures</span>
+            <Icon name="MapPin" size={20} />
+            <span className="font-medium text-balance">Барда — Путеводитель</span>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-1">
-            {["Экспедиция", "Безопасность", "Галерея", "Вопросы", "Контакты"].map((item) => (
+            {["Места", "Маршрут", "История", "Вопросы", "Контакты"].map((item) => (
               <a
                 key={item}
                 href="#"
@@ -72,15 +73,9 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Action Buttons */}
+          {/* Action Button */}
           <div className="flex items-center gap-3">
-            <a
-              href="#"
-              className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
-            >
-              Войти
-            </a>
-            <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">Забронировать</Button>
+            <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">Начать маршрут</Button>
           </div>
         </nav>
 
@@ -88,35 +83,35 @@ const Index = () => {
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] px-6 text-center">
           {/* Badge */}
           <div className="mb-6 px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full">
-            <span className="text-sm font-medium">Эксклюзивные групповые экспедиции</span>
+            <span className="text-sm font-medium">Электронный путеводитель · Пермский край</span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-6xl md:text-8xl font-light tracking-tight mb-6 text-balance">Войдите в затерянный мир.</h1>
+          <h1 className="text-6xl md:text-8xl font-light tracking-tight mb-6 text-balance">Откройте село Барда.</h1>
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-white/90 max-w-4xl mb-12 leading-relaxed text-pretty">
-            Исследуйте грандиозные залы пещеры Скрытой Долины в Южной Америке — уникальную экосистему с собственными джунглями и погодой — в рамках 4-дневной экспедиции с гидом.
+            Уютное многонациональное село в Пермском крае с богатой историей, живописной природой и самобытной культурой. Узнайте все места, которые стоит посетить.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-4 text-lg">
-              Забронировать экспедицию
+              Смотреть достопримечательности
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="bg-black/40 ring-1 ring-white/20 backdrop-blur border-0 text-white hover:bg-black/50 rounded-full px-8 py-4 text-lg"
             >
-              Смотреть маршрут
+              Построить маршрут
             </Button>
           </div>
 
           {/* Footer Note */}
           <div className="flex items-center gap-2 px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full">
-            <Lock className="w-4 h-4" />
-            <span className="text-sm font-medium">Безопасность — наш приоритет</span>
+            <Icon name="Star" size={16} />
+            <span className="text-sm font-medium">Более 10 мест, обязательных к посещению</span>
           </div>
         </div>
       </div>
@@ -125,111 +120,107 @@ const Index = () => {
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-            {/* Expert-Led Tours */}
+            {/* Природа */}
             <div className="rounded-2xl bg-black/20 ring-1 ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-black/30 ring-1 ring-white/20 mb-6">
-                <Sparkles className="w-6 h-6" />
+                <Icon name="Trees" size={24} />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Туры с экспертами</h3>
-              <p className="text-white/80 leading-relaxed">Ведут геологи, спелеологи и местные специалисты.</p>
+              <h3 className="text-xl font-semibold mb-4">Живая природа</h3>
+              <p className="text-white/80 leading-relaxed">Леса, реки и луга Пермского края в самом красивом виде.</p>
             </div>
 
-            {/* World-Class Safety */}
+            {/* История */}
             <div className="rounded-2xl bg-black/20 ring-1 ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-black/30 ring-1 ring-white/20 mb-6">
-                <ShieldCheck className="w-6 h-6" />
+                <Icon name="Church" size={24} />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Мировой уровень безопасности</h3>
-              <p className="text-white/80 leading-relaxed">Строгие протоколы и современное снаряжение.</p>
+              <h3 className="text-xl font-semibold mb-4">Богатая история</h3>
+              <p className="text-white/80 leading-relaxed">Старинные храмы, памятники и исторические здания.</p>
             </div>
 
-            {/* All-Inclusive Package */}
+            {/* Культура */}
             <div className="rounded-2xl bg-black/20 ring-1 ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-black/30 ring-1 ring-white/20 mb-6">
-                <Wallet className="w-6 h-6" />
+                <Icon name="Star" size={24} />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Все включено</h3>
-              <p className="text-white/80 leading-relaxed">Разрешения, снаряжение, питание и трансфер.</p>
+              <h3 className="text-xl font-semibold mb-4">Самобытная культура</h3>
+              <p className="text-white/80 leading-relaxed">Многонациональные традиции татар, башкир и русских.</p>
             </div>
 
-            {/* Eco-Friendly Caving */}
+            {/* Фото */}
             <div className="rounded-2xl bg-black/20 ring-1 ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-black/30 ring-1 ring-white/20 mb-6">
-                <Leaf className="w-6 h-6" />
+                <Icon name="Camera" size={24} />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Эко-спелеология</h3>
-              <p className="text-white/80 leading-relaxed">Мы бережно сохраняем экосистему пещеры.</p>
+              <h3 className="text-xl font-semibold mb-4">Живописные виды</h3>
+              <p className="text-white/80 leading-relaxed">Идеальные локации для фотографий на память.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Journey Section */}
+      {/* Journey Section — Маршрут */}
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-12">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Ваше эпическое путешествие</h2>
+              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Места, которые стоит посетить</h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto text-pretty">
-                От джунглей до подземных лагерей — вот что вас ждет.
+                Главные достопримечательности Барды — от исторического центра до живописных окрестностей.
               </p>
             </div>
 
-            {/* Journey Cards */}
+            {/* Places Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {/* Phase 1: Briefing & Prep */}
               <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
                 <div className="flex-1">
                   <div className="text-3xl font-bold text-white/60 mb-4">01.</div>
-                  <h3 className="text-xl font-semibold mb-4">Инструктаж</h3>
+                  <h3 className="text-xl font-semibold mb-4">Соборная мечеть</h3>
                   <p className="text-white/80 leading-relaxed text-sm">
-                    Ваше приключение начинается в базовом лагере с полного инструктажа по безопасности и проверки снаряжения.
+                    Главная мечеть района — символ духовной жизни Барды. Красивая архитектура и ухоженная территория делают её обязательным местом для посещения.
                   </p>
                 </div>
               </div>
 
-              {/* Phase 2: The Trek */}
               <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
                 <div className="flex-1">
                   <div className="text-3xl font-bold text-white/60 mb-4">02.</div>
-                  <h3 className="text-xl font-semibold mb-4">Треккинг</h3>
+                  <h3 className="text-xl font-semibold mb-4">Краеведческий музей</h3>
                   <p className="text-white/80 leading-relaxed text-sm">
-                    Идите через нетронутые джунгли, пересекайте реки и ночуйте в удаленных точках по пути ко входу в Скрытую Долину.
+                    Бардымский краеведческий музей хранит уникальные экспонаты о быте, истории и культуре местных народов на протяжении столетий.
                   </p>
                 </div>
               </div>
 
-              {/* Phase 3: Caving */}
               <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
                 <div className="flex-1">
                   <div className="text-3xl font-bold text-white/60 mb-4">03.</div>
-                  <h3 className="text-xl font-semibold mb-4">Спелеология</h3>
+                  <h3 className="text-xl font-semibold mb-4">Берег реки Барды</h3>
                   <p className="text-white/80 leading-relaxed text-sm">
-                    Спуститесь в пещеру, чтобы увидеть гигантские сталагмиты, исследовать огромные залы и уникальные подземные джунгли.
+                    Живописные берега реки — отличное место для прогулок и отдыха. Особенно красиво здесь ранним утром или в закатные часы.
                   </p>
                 </div>
               </div>
 
-              {/* Phase 4: Base Camp */}
               <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 h-80 flex flex-col">
                 <div className="flex-1">
                   <div className="text-3xl font-bold text-white/60 mb-4">04.</div>
-                  <h3 className="text-xl font-semibold mb-4">Базовый лагерь</h3>
+                  <h3 className="text-xl font-semibold mb-4">Центральный парк</h3>
                   <p className="text-white/80 leading-relaxed text-sm">
-                    Проведите ночи на потрясающих стоянках внутри пещеры, делясь историями с группой перед обратным путем.
+                    Главный парк Барды — место встречи жителей. Уютные аллеи, зелень и атмосфера настоящего уральского села в самом сердце Барды.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Check Availability Button */}
+            {/* Button */}
             <div className="text-center">
               <Button
                 size="lg"
                 className="bg-white text-black hover:bg-white/90 rounded-full px-12 py-4 text-lg font-semibold"
               >
-                Проверить наличие мест
+                Посмотреть все места
               </Button>
             </div>
           </div>
@@ -241,13 +232,13 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-              {/* Left Column - Title and Description */}
+              {/* Left Column */}
               <div>
                 <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">
                   Частые вопросы
                 </h2>
                 <p className="text-xl text-white/80 leading-relaxed text-pretty">
-                  Все, что нужно знать об экспедиции: от физических требований до бронирования места в этом эксклюзивном приключении.
+                  Всё, что нужно знать перед поездкой в Барду: как добраться, где остановиться и что попробовать.
                 </p>
               </div>
 
@@ -288,13 +279,13 @@ const Index = () => {
           <div className="rounded-3xl bg-black/20 ring-1 ring-white/15 backdrop-blur p-12">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Свяжитесь с нами</h2>
+              <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-balance">Есть вопросы о Барде?</h2>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               {/* Left Column - Contact Form */}
               <div className="rounded-2xl bg-white/95 text-black p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6">Отправить запрос</h3>
+                <h3 className="text-2xl font-bold mb-6">Написать нам</h3>
                 <form className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -304,7 +295,7 @@ const Index = () => {
                       type="text"
                       id="name"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Ваше полное имя"
+                      placeholder="Ваше имя"
                     />
                   </div>
                   <div>
@@ -326,7 +317,7 @@ const Index = () => {
                       id="message"
                       rows={5}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                      placeholder="Расскажите о ваших интересах в экспедиции..."
+                      placeholder="Задайте вопрос или предложите место для путеводителя..."
                     />
                   </div>
                   <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-lg py-3 font-normal text-base">
@@ -335,25 +326,23 @@ const Index = () => {
                 </form>
               </div>
 
-              {/* Right Column - Contact Info */}
+              {/* Right Column - Info */}
               <div className="space-y-8">
                 <div>
                   <p className="text-xl text-white/90 leading-relaxed text-pretty">
-                    По вопросам индивидуальных туров, партнерства или для СМИ — свяжитесь с нами. Мы отвечаем в течение одного рабочего дня.
+                    Знаете интересное место в Барде, которого нет в путеводителе? Напишите нам — мы добавим его на карту!
                   </p>
                 </div>
 
-                {/* Profile Card */}
+                {/* Info Card */}
                 <div className="rounded-2xl bg-white/95 text-black p-6 shadow-2xl">
                   <div className="flex items-center gap-4 mb-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-                      alt="Маркус Уильямс"
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
+                    <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-2xl">
+                      🏡
+                    </div>
                     <div>
-                      <h4 className="text-lg font-semibold">Маркус Уильямс</h4>
-                      <p className="text-gray-600">Руководитель экспедиций</p>
+                      <h4 className="text-lg font-semibold">Редакция путеводителя</h4>
+                      <p className="text-gray-600">село Барда, Пермский край</p>
                     </div>
                   </div>
                   <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-lg flex items-center justify-center gap-2">
@@ -376,19 +365,19 @@ const Index = () => {
               {/* Brand Section */}
               <div className="lg:col-span-2">
                 <div className="flex items-center gap-2 mb-6">
-                  <Compass className="w-6 h-6" />
-                  <span className="text-xl font-semibold">Horizon Adventures</span>
+                  <Icon name="MapPin" size={24} />
+                  <span className="text-xl font-semibold">Барда — Путеводитель</span>
                 </div>
                 <p className="text-white/80 leading-relaxed text-pretty">
-                  Официальный туроператор экспедиций в Скрытую Долину — крупнейшую пещеру мира. Мы преданы безопасности, охране природы и незабываемым приключениям.
+                  Электронный путеводитель по селу Барда Пермского края. Откройте для себя историю, природу и культуру этого удивительного места.
                 </p>
               </div>
 
-              {/* Expedition Links */}
+              {/* Places Links */}
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-6">ЭКСПЕДИЦИЯ</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider mb-6">МЕСТА</h3>
                 <ul className="space-y-3">
-                  {["Маршрут", "Цены", "Список снаряжения", "Фотогалерея"].map((item) => (
+                  {["Мечети и храмы", "Музеи", "Природа", "Парки"].map((item) => (
                     <li key={item}>
                       <a href="#" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
                         {item}
@@ -400,9 +389,9 @@ const Index = () => {
 
               {/* About Links */}
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-6">О НАС</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider mb-6">О БАРДЕ</h3>
                 <ul className="space-y-3">
-                  {["Наша миссия", "Стандарты безопасности", "Команда", "Охрана природы"].map((item) => (
+                  {["История села", "Культура", "Народы", "Кухня"].map((item) => (
                     <li key={item}>
                       <a href="#" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
                         {item}
@@ -414,9 +403,9 @@ const Index = () => {
 
               {/* Resources Links */}
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-6">ПОДДЕРЖКА</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider mb-6">ТУРИСТУ</h3>
                 <ul className="space-y-3">
-                  {["Справочный центр", "Контакты", "Вопросы и ответы", "Условия"].map((item) => (
+                  {["Как добраться", "Где остановиться", "Маршруты", "Контакты"].map((item) => (
                     <li key={item}>
                       <a href="#" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
                         {item}
@@ -430,7 +419,7 @@ const Index = () => {
             {/* Newsletter Section */}
             <div className="border-t border-white/10 pt-12 mb-12">
               <div className="max-w-md">
-                <h3 className="text-lg font-semibold mb-4">Новости экспедиций</h3>
+                <h3 className="text-lg font-semibold mb-4">Новости Барды</h3>
                 <div className="flex gap-3">
                   <input
                     type="email"
@@ -444,7 +433,7 @@ const Index = () => {
 
             {/* Sub-footer */}
             <div className="border-t border-white/10 pt-8">
-              <p className="text-white/60 text-sm text-center">© 2025 Horizon Adventures</p>
+              <p className="text-white/60 text-sm text-center">© 2025 Электронный путеводитель по селу Барда</p>
             </div>
           </div>
         </div>
